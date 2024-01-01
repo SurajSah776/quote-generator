@@ -1,0 +1,454 @@
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(
+    255deg,
+    rgb(115, 88, 222),
+    rgb(8, 131, 149)
+  );
+  position: relative;
+  font-size: 16px;
+}
+
+.navBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  height: 50px;
+  background: #000;
+  opacity: 1;
+  margin: 0;
+}
+
+/* Title */
+.title {
+  color: white;
+  font-weight: 600;
+  font-family: monospace;
+  font-size: 20px;
+}
+
+.title::first-letter {
+  color: red;
+  font-size: 1.5rem;
+}
+
+/* Navigation Menu */
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+ul {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+}
+
+ul li {
+  list-style-type: none;
+  border-radius: 2px;
+  margin: 2px 8px;
+  padding: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: large;
+  border-bottom: 2px solid transparent;
+
+  color: white;
+  letter-spacing: 0.7px;
+}
+
+ul li:hover {
+  border-bottom: 2.5px solid white;
+}
+
+/* Login Signup Buttons */
+.buttons {
+  margin: 0 5px;
+}
+
+.buttons button {
+  cursor: pointer;
+  padding: 8px 10px;
+  background-color: rgb(102, 48, 203);
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: unset;
+  letter-spacing: 0.7px;
+}
+
+.buttons button:hover {
+  background-color: rgb(87, 40, 174);
+}
+
+.search {
+  border-radius: 4px;
+  position: relative;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-menu {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding-left: 8px;
+}
+
+.search-menu:focus {
+  outline-width: 0;
+}
+
+.search-icon {
+  height: 30px;
+  background-color: aquamarine;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: none;
+}
+
+/* Main Section */
+.main {
+  height: 70%;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.main.active {
+  display: flex;
+}
+
+.main-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+  justify-content: center;
+  width: 40vw;
+  padding: 1.8rem 2rem;
+  position: relative;
+  box-shadow: 0px 0px 10px gray;
+  background-color: rgb(194, 194, 194);
+  border-radius: 4px;
+  margin-top: 1.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  box-shadow: 0px 0px 3px 0.1px rgb(0, 0, 0);
+  background-color: rgb(29, 38, 125);
+  color: rgb(223, 223, 223);
+
+  padding: 1rem;
+  border: none;
+  border-radius: 0.6rem;
+}
+
+.output-section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+}
+
+textarea:focus {
+  outline: 0;
+  border: 0.1px solid rgb(138, 2, 216);
+  box-shadow: 0px 0px 5px 0.1px rgb(47, 26, 59);
+}
+
+#display-area {
+  width: 100%;
+  padding: 2rem 1.5rem;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  background-color: rgb(240, 240, 240);
+  color: rgb(60, 60, 60);
+}
+
+#display-area::placeholder {
+  color: rgb(122, 122, 122);
+  font-weight: 600;
+}
+
+.generate {
+  cursor: pointer;
+  padding: 8px 10px;
+  background-color: rgb(102, 48, 203);
+  color: white;
+  font-weight: 600;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  border: unset;
+  letter-spacing: 1px;
+}
+
+.main-box .generate:hover {
+  transition: all 300ms ease-in-out;
+  background-color: rgb(87, 27, 199);
+}
+
+/* Copy Msg ToolTip */
+.copy-tooltip {
+  width: 30px;
+  height: 30px;
+  border-radius: 0.5rem;
+  border: none;
+  mix-blend-mode: darken;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 12%;
+  right: 1%;
+  transform: translateY(-50%);
+}
+
+.tooltip {
+  font-weight: 600;
+  background-color: rgb(132, 132, 132);
+  color: rgb(45, 45, 45);
+  padding: 0.4rem 0.6rem;
+  border-radius: 1rem;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: bottom;
+  transition: all 200ms ease-in-out;
+  position: absolute;
+  top: -26px;
+  left: -10px;
+}
+
+.tooltip.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Intro Page CSS */
+.landing-page {
+  width: 95%;
+  display: flex;
+  padding: 3rem 2rem;
+  justify-content: space-between;
+  margin: 10rem auto;
+}
+
+.landing-page.active {
+  display: none;
+}
+
+.left {
+  width: 60%;
+  display: flex;
+  border-right: 4px solid rgb(237, 5, 198);
+}
+
+.right {
+  width: 40%;
+  margin: auto;
+}
+
+.left p {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: justify;
+  line-height: 2.1rem;
+  padding: 0.8rem 1rem 0.8rem 1rem;
+  margin: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Buttons on Main Section (Right Side) */
+.get-started {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.get-started p {
+  font-size: 1.1rem;
+  font-weight: bolder;
+  text-align: justify;
+  color: white;
+  padding: 1rem;
+}
+
+.get-started button {
+  cursor: pointer;
+  padding: 8px 10px;
+  background-color: rgb(0, 157, 255);
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: unset;
+  width: fit-content;
+}
+
+.get-started button:hover {
+  background-color: rgb(0, 141, 228);
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.683);
+  width: 100%;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  gap: 2px;
+  padding: 1.5px;
+  color: white;
+}
+
+.footer p {
+  padding: 2px 0px 5px;
+  font-size: 12px;
+  text-align: center;
+  color: white;
+}
+
+.footer img {
+  width: 20px;
+  mix-blend-mode: normal;
+}
+
+.footer a {
+  font-size: 12px;
+  text-decoration: none;
+  color: cyan;
+  font-weight: bold;
+}
+
+/* Media queries for mobile screens */
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+    position: relative;
+    height: 100vh;
+  }
+  .navBar {
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  ul {
+    flex-direction: column;
+    gap: 2px;
+  }
+  ul li {
+    font-size: 10px;
+    margin: 1px 0;
+  }
+  .title {
+    font-size: 12px;
+  }
+  .title::first-letter {
+    font-size: 1rem;
+  }
+  .buttons button {
+    font-size: 14px;
+  }
+  .buttons button {
+    font-size: 10px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+  }
+  .main-box {
+    flex-direction: column;
+    gap: 1rem;
+    width: 80%;
+    padding: 1rem 1.5rem;
+    position: relative;
+    margin-top: 0px;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  .landing-page {
+    margin: 0.5rem auto;
+    width: 86%;
+    padding: 1rem 0.5rem;
+  }
+  .landing-page p {
+    font-size: 14px;
+  }
+  .left {
+    width: 40%;
+  }
+  textarea {
+    font-size: 14px;
+  }
+  .output-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .generate {
+    padding: 8px 10px;
+    font-size: 15px;
+    letter-spacing: 0.7px;
+  }
+  #display-area {
+    width: 90%;
+    padding: 1.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 6px;
+  }
+
+  /* Footer */
+  .links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .footer img {
+    width: 15px;
+  }
+  .footer p {
+    font-size: 10px;
+  }
+  .items {
+    font-size: 8px;
+  }
+  .footer a {
+    font-size: 10px;
+  }
+}
